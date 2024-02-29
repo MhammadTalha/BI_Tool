@@ -107,6 +107,7 @@ nav a:hover {
   margin-right: 30px;
 }
 .NC-inputfield textarea{
+  resize: none;
   margin-top: 150px;
   width: 300px;
   height: 100px;
@@ -133,6 +134,7 @@ nav a:hover {
   margin-right: 30px;
 }
 .Complementary-inputfield textarea{
+  resize: none;
   margin-top: 150px;
   width: 300px;
   height: 100px;
@@ -159,6 +161,7 @@ nav a:hover {
   margin-right: 30px;
 }
 .Transcription-inputfield textarea{
+  resize: none;
   margin-top: 150px;
   width: 300px;
   height: 100px;
@@ -185,6 +188,7 @@ nav a:hover {
   margin-right: 30px;
 }
 .GC-inputfield textarea{
+  resize: none;
   margin-top: 150px;
   width: 300px;
   height: 100px;
@@ -211,6 +215,7 @@ nav a:hover {
   margin-right: 30px;
 }
 .DM-inputfield textarea{
+  resize: none;
   margin-top: 150px;
   width: 300px;
   height: 100px;
@@ -238,6 +243,7 @@ nav a:hover {
   margin-right: 30px;
 }
 .Translation-inputfield textarea{
+  resize: none;
   margin-top: 150px;
   width: 300px;
   height: 100px;
@@ -259,6 +265,7 @@ nav a:hover {
   height: 100%;
 }
 .Mainscreen-data-code textarea{
+  resize: none;
   border: 1px solid #fff;
 }
 .Mainscreen-terminal{
@@ -269,4 +276,4 @@ nav a:hover {
 .Mainscreen-terminal h3{
   color: #fff;
   margin-left: 10px;
-}
+} 
