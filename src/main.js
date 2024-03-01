@@ -1,18 +1,22 @@
-const { invoke } = window.__TAURI__.tauri;
+document.addEventListener("DOMContentLoaded", function() {
+  const DNA_main = document.querySelector('.DNA');
+  const DNA_data = document.querySelector('.DNA-data');
+  const RNA_main = document.querySelector('.RNA');
+  const RNA_data = document.querySelector('.RNA-data'); // Corrected variable name
 
-let greetInputEl;
-let greetMsgEl;
+  DNA_main.addEventListener('click', function() {
+    if (DNA_data.style.display === 'none') {
+      DNA_data.style.display = 'block';
+    } else {
+      DNA_data.style.display = 'none';
+    }
+  });
 
-async function greet() {
-  // Learn more about Tauri commands at https://tauri.app/v1/guides/features/command
-  greetMsgEl.textContent = await invoke("greet", { name: greetInputEl.value });
-}
-
-window.addEventListener("DOMContentLoaded", () => {
-  greetInputEl = document.querySelector("#greet-input");
-  greetMsgEl = document.querySelector("#greet-msg");
-  document.querySelector("#greet-form").addEventListener("submit", (e) => {
-    e.preventDefault();
-    greet();
+  RNA_main.addEventListener('click', function() {
+    if (RNA_data.style.display === 'none') { // Corrected variable name
+      RNA_data.style.display = 'block';
+    } else {
+      RNA_data.style.display = 'none';
+    }
   });
 });
