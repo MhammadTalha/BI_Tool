@@ -62,6 +62,17 @@ nav a:hover {
   width: fit-content;
   flex-wrap: wrap;
 }
+/* Add this new CSS for the resizable handle */
+.resizable-handle {
+  width: 10px;
+  height: 100%;
+  background-color: #555;
+  cursor: ew-resize;
+  position: absolute;
+  top: 0;
+  right: -5px; /* Adjust based on your preference */
+}
+
 .mainss{ 
   width: 100%;
   height: 100vh;
@@ -269,6 +280,7 @@ nav a:hover {
   border: 1px solid #fff;
 }
 .Mainscreen-terminal{
+  display: none;
   width: 100%;
   height: 30%;
   background-color: black;
