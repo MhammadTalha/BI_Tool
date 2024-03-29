@@ -1,28 +1,26 @@
-window.onload = function() {
+document.addEventListener("DOMContentLoaded", function() {
   var sidebar = document.getElementById('sidebar');
-  var sidebarResizer = document.createElement('div');
-  sidebarResizer.style.width = '10px';
-  sidebarResizer.style.height = '100%';
-  sidebarResizer.style.backgroundColor = '#555';
-  sidebarResizer.style.cursor = 'ew-resize';
-  sidebarResizer.style.position = 'absolute';
-  sidebarResizer.style.left = '0';
-  sidebarResizer.style.top = '0';
-  sidebar.appendChild(sidebarResizer);
+  var resizeable = document.querySelector('.sidr'); // Select the resizable handle
+  
+  var isResizing = false;
 
-  sidebarResizer.addEventListener('mousedown', function(e) {
+  resizeable.addEventListener('mousedown', function(e) {
+    isResizing = true;
     window.addEventListener('mousemove', resize);
-    window.addEventListener('mouseup', stopResize);
+  });
+
+  document.addEventListener('mouseup', function() {
+    isResizing = false;
+    window.removeEventListener('mousemove', resize);
   });
 
   function resize(e) {
-    sidebar.style.width = (e.clientX - sidebar.getBoundingClientRect().left) + 'px';
+    if (isResizing) {
+      sidebar.style.width = (e.clientX - sidebar.getBoundingClientRect().left) + 'px';
+    }
   }
+});
 
-  function stopResize() {
-    window.removeEventListener('mousemove', resize);
-  }
-}
 
 document.addEventListener("DOMContentLoaded", function() {
   const DNA_main = document.querySelector('.DNA');
@@ -55,8 +53,4 @@ document.addEventListener("DOMContentLoaded", function() {
       Terminal.style.display = 'block';
     }
   });
-
-
- 
 });
-
