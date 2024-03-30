@@ -1,4 +1,8 @@
 
+// import { invoke } from '@tauri-apps/api/tauri';
+const invoke = window.__TAURI__.invoke;
+invoke('greet', {name: "Ali"}).then((message) => console.log(message));
+
 var resizeable = document.querySelector('.sidr'),
     sidebar = document.getElementById('sidebar');
 
