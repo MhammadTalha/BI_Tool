@@ -1,7 +1,11 @@
 
 // import { invoke } from '@tauri-apps/api/tauri';
 const invoke = window.__TAURI__.invoke;
-invoke('greet', {name: "Ali"}).then((message) => console.log(message));
+const someString="IDK_What_I'm_Doing";
+invoke('greet', {name: someString}).then((message) => console.log(message));
+const sequence="ATGCGGTAGTCGATGCTA";
+invoke('n_count', {seq: sequence}).then((result) => console.log(result));
+
 
 var resizeable = document.querySelector('.sidr'),
     sidebar = document.getElementById('sidebar');
