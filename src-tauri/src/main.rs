@@ -17,11 +17,11 @@ fn n_count(seq: &str) -> String {
 
 fn main() {
     tauri::Builder::default()
-        .invoke_handler(tauri::generate_handler![greet])
+        .invoke_handler(tauri::generate_handler![greet,n_count])
         .run(tauri::generate_context!())
         .expect("error while running tauri application");
-    tauri::Builder::default()
-        .invoke_handler(tauri::generate_handler![n_count])
-        .run(tauri::generate_context!())
-        .expect("error while running tauri application");
+    // tauri::Builder::default()
+    //     .invoke_handler(tauri::generate_handler![n_count])
+    //     .run(tauri::generate_context!())
+    //     .expect("error while running tauri application");
 }
