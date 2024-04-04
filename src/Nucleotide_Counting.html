@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Tauri App</title>
   <link rel="stylesheet" href="styles.css">
-  <script type="module" src="main.js" defer></script>
+
 </head>
 <body>
   <nav>
@@ -42,12 +42,12 @@
         <div class="Mainscreen-data-input">
           <div class="NC-inputfield">
             <label >Enter Your DNA Sequence</label>
-            <textarea  cols="30" rows="10"></textarea>
+            <textarea id="NCtextarea" cols="30" rows="10"></textarea>
           </div>
           <div class="NC-buttons">
-            <input type="submit" class="submit">
+            <input type="submit" class="submit" >
             <input type="reset">
-            <button>Code</button>
+            <button onclick="NC_change()">Code</button>
           </div>
         </div> 
         <div class="Mainscreen-data-code">
@@ -60,5 +60,6 @@
       
     </div>
   </div>
+  <script type="module" src="main.js" defer></script>
 </body>
 </html>

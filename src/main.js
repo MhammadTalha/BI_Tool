@@ -1,10 +1,6 @@
-
-// import { invoke } from '@tauri-apps/api/tauri';
 const invoke = window.__TAURI__.invoke;
 const someString="IDK_What_I'm_Doing";
 invoke('greet', {name: someString}).then((message) => console.log(message));
-const sequence="ATGCGGTAGTCGATGCTA";
-invoke('n_count', {seq: sequence}).then((result) => console.log(result));
 
 
 var resizeable = document.querySelector('.sidr'),
@@ -64,7 +60,10 @@ document.addEventListener("DOMContentLoaded", function() {
     }
   });
 
-  Submitbtn.addEventListener('click', function() { // Added event listener for the submit button
+  Submitbtn.addEventListener('click', function() { 
+    var txtarea= document.getElementById("NCtextarea")
+    var text= txtarea.value;
+    invoke('n_count', {seq: text}).then((result) => console.log(result));
     if (Terminal.style.display === 'none') { 
       Terminal.style.display = 'block';
     } else {
@@ -72,3 +71,4 @@ document.addEventListener("DOMContentLoaded", function() {
     }
   });
 });
+
