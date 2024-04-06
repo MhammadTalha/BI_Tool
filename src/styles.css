@@ -298,3 +298,23 @@ width: 19%;
   color: #fff;
   margin-left: 10px;
 } 
+.NC_terminaloutput{
+  width: 100%;
+  height: auto;
+  margin-top: 20px;
+  
+}
+.NC_terminaloutput p{
+  color: white;
+  width: 90%;
+}
+.Complementary_terminaloutput{
+  width: 100%;
+  height: auto;
+  margin-top: 20px;
+  
+}
+.Complementary_terminaloutput p{
+  color: white;
+  width: 90%;
+}

@@ -16,10 +16,29 @@ fn n_count(seq: &str) -> String {
     format!("Count of A is {}! Count of T is {}! Count of G is {}! Count of C is {}!", count_a, count_t, count_g, count_c)
 }
 
+#[tauri::command]
+fn complementary(seq: &str) -> String {
+    let mut complementary_sequence = String::new();
+
+    for base in seq.chars() {
+        let complementary_base = match base {
+            'A' => 'T',
+            'T' => 'A',
+            'C' => 'G',
+            'G' => 'C',
+            'U' => 'T', 
+            _ => base,
+        };
+        complementary_sequence.push(complementary_base);
+    }
+    
+    complementary_sequence 
+}
+
 
 fn main() {
     tauri::Builder::default()
-        .invoke_handler(tauri::generate_handler![greet,n_count])
+        .invoke_handler(tauri::generate_handler![greet,n_count,complementary])
         .run(tauri::generate_context!())
         .expect("error while running tauri application");
 }

@@ -34,6 +34,7 @@ function resizer(sidebar,resizeable){
 
 }
 
+
 resizer(sidebar,resizeable);
 
 document.addEventListener("DOMContentLoaded", function() {
@@ -42,7 +43,8 @@ document.addEventListener("DOMContentLoaded", function() {
   const RNA_main = document.querySelector('.RNA');
   const RNA_data = document.querySelector('.RNA-data'); 
   const Terminal = document.querySelector('.Mainscreen-terminal');
-  const Submitbtn = document.querySelector('.submit'); // Corrected target for the submit button
+  
+  const Complementary = document.querySelector(".Complementary_submit"); 
 
   DNA_main.addEventListener('click', function() {
     if (DNA_data.style.display === 'none') {
@@ -60,10 +62,30 @@ document.addEventListener("DOMContentLoaded", function() {
     }
   });
 
-  Submitbtn.addEventListener('click', function() { 
-    var txtarea= document.getElementById("NCtextarea")
+  Complementary.addEventListener('click', function() { 
+    var txtarea= document.getElementById("Complementary_textarea")
+    var Complementary_output= document.getElementById("Complementary_para_output")
     var text= txtarea.value;
-    invoke('n_count', {seq: text}).then((result) => console.log(result));
+    invoke('complementary', {seq: text}).then((result) => Complementary_output.textContent=result);
+    if (Terminal.style.display === 'none') { 
+      Terminal.style.display = 'block';
+    } else {
+      Terminal.style.display = 'block';
+    }
+  });
+
+
+});
+
+document.addEventListener("DOMContentLoaded", function() {
+  const Terminal = document.querySelector('.Mainscreen-terminal');
+  const NC_Submitbtn = document.querySelector('.NC_submit'); 
+
+  NC_Submitbtn.addEventListener('click', function() { 
+    var txtarea= document.getElementById("NCtextarea")
+    var NC_output= document.getElementById("NC_para_output")
+    var text= txtarea.value;
+    invoke('n_count', {seq: text}).then((result) => NC_output.textContent=result);
     if (Terminal.style.display === 'none') { 
       Terminal.style.display = 'block';
     } else {
@@ -71,4 +93,3 @@ document.addEventListener("DOMContentLoaded", function() {
     }
   });
 });
-
