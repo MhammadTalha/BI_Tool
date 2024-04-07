@@ -80,12 +80,33 @@ document.addEventListener("DOMContentLoaded", function() {
 document.addEventListener("DOMContentLoaded", function() {
   const Terminal = document.querySelector('.Mainscreen-terminal');
   const NC_Submitbtn = document.querySelector('.NC_submit'); 
+  
 
   NC_Submitbtn.addEventListener('click', function() { 
     var txtarea= document.getElementById("NCtextarea")
     var NC_output= document.getElementById("NC_para_output")
     var text= txtarea.value;
     invoke('n_count', {seq: text}).then((result) => NC_output.textContent=result);
+    if (Terminal.style.display === 'none') { 
+      Terminal.style.display = 'block';
+    } else {
+      Terminal.style.display = 'block';
+    }
+  });
+
+
+  
+});
+
+document.addEventListener("DOMContentLoaded", function() {
+  const Terminal = document.querySelector('.Mainscreen-terminal');
+  const GC =document.querySelector(".GC_submit");
+
+  GC.addEventListener('click', function() { 
+    var txtarea= document.getElementById("GCtextarea")
+    var GC_output= document.getElementById("GC_para_output")
+    var text= txtarea.value;
+    invoke('gc', {seq: text}).then((result) => GC_output.textContent=result);
     if (Terminal.style.display === 'none') { 
       Terminal.style.display = 'block';
     } else {

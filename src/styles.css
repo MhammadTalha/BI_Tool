@@ -318,3 +318,13 @@ width: 19%;
   color: white;
   width: 90%;
 }
+.GC_terminaloutput{
+  width: 100%;
+  height: auto;
+  margin-top: 20px;
+  
+}
+.GC_terminaloutput p{
+  color: white;
+  width: 90%;
+}
