@@ -35,10 +35,22 @@ fn complementary(seq: &str) -> String {
     complementary_sequence 
 }
 
+#[tauri::command]
+fn gc(seq: &str) -> String {
+    let newseq = seq.to_uppercase();
+    let count_a = newseq.matches('A').count();
+    let count_t = newseq.matches('T').count();
+    let count_g = newseq.matches('G').count();
+    let count_c = newseq.matches('C').count();
+    let total=count_a+count_c+count_g+count_t;
+    let gc= ((count_c+count_g)/total)*100;
+    format!("GC content in the sequnce is {}! %",gc)
+}
+
 
 fn main() {
     tauri::Builder::default()
-        .invoke_handler(tauri::generate_handler![greet,n_count,complementary])
+        .invoke_handler(tauri::generate_handler![greet,n_count,complementary,gc])
         .run(tauri::generate_context!())
         .expect("error while running tauri application");
 }
