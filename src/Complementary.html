@@ -46,11 +46,30 @@
           <div class="Complementary-buttons">
             <input type="submit" class="Complementary_submit">
             <input type="reset">
-            <button>Code</button>
+            <button class="Complementary_code">Code</button>
           </div>
         </div> 
-        <div class="Mainscreen-data-code">
-          <textarea  cols="50" rows="34"></textarea>
+        <div class="Complementary-data-code">
+          <textarea  cols="50" rows="34" readonly>
+fn complementary(seq: &str) -> String {
+let newseq = seq.to_uppercase();
+let mut complementary_sequence = String::new();
+          
+for base in newseq.chars() {
+let complementary_base = match base {
+  'A' => 'T',
+  'T' => 'A',
+  'C' => 'G',
+  'G' => 'C',
+  'U' => 'T', 
+  _ => base,
+  };
+  complementary_sequence.push(complementary_base);
+  }
+              
+complementary_sequence 
+}
+          </textarea>
         </div>
       </div>
       <div class="Mainscreen-terminal">

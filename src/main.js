@@ -1,6 +1,5 @@
 const invoke = window.__TAURI__.invoke;
-const someString="IDK_What_I'm_Doing";
-invoke('greet', {name: someString}).then((message) => console.log(message));
+
 
 
 var resizeable = document.querySelector('.sidr'),
@@ -42,9 +41,16 @@ document.addEventListener("DOMContentLoaded", function() {
   const DNA_data = document.querySelector('.DNA-data');
   const RNA_main = document.querySelector('.RNA');
   const RNA_data = document.querySelector('.RNA-data'); 
-  const Terminal = document.querySelector('.Mainscreen-terminal');
-  
-  const Complementary = document.querySelector(".Complementary_submit"); 
+  const NC_code = document.querySelector(".NC_code");
+  const NC_code_output = document.querySelector(".NC-data-code")
+
+  NC_code.addEventListener('click', function() {
+    if (NC_code_output.style.display === 'none') {
+      NC_code_output.style.display = 'block';
+    } else {
+      NC_code_output.style.display = 'none';
+    }
+  });  
 
   DNA_main.addEventListener('click', function() {
     if (DNA_data.style.display === 'none') {
@@ -61,7 +67,48 @@ document.addEventListener("DOMContentLoaded", function() {
       RNA_data.style.display = 'none';
     }
   });
+});
 
+document.addEventListener("DOMContentLoaded", function() {
+  const Complementary_code = document.querySelector(".Complementary_code");
+  const Complementary_code_output = document.querySelector(".Complementary-data-code")
+
+  Complementary_code.addEventListener('click', function() {
+    if (Complementary_code_output.style.display === 'none') {
+      Complementary_code_output.style.display = 'block';
+    } else {
+      Complementary_code_output.style.display = 'none';
+    }
+  });  
+});
+
+document.addEventListener("DOMContentLoaded", function() {
+const GC_code = document.querySelector(".GC_code");
+const GC_code_output = document.querySelector(".GC-data-code")
+GC_code.addEventListener('click', function() {
+  if (GC_code_output.style.display === 'none') {
+    GC_code_output.style.display = 'block';
+  } else {
+    GC_code_output.style.display = 'none';
+  }
+  }); 
+});
+
+document.addEventListener("DOMContentLoaded", function() {
+  const Transcription_code = document.querySelector(".Transcription_code");
+  const Transcription_code_output = document.querySelector(".Transcription-data-code")
+  Transcription_code.addEventListener('click', function() {
+    if (Transcription_code_output.style.display === 'none') {
+      Transcription_code_output.style.display = 'block';
+    } else {
+      Transcription_code_output.style.display = 'none';
+    }
+  }); 
+});
+
+document.addEventListener("DOMContentLoaded", function() {
+  const Terminal = document.querySelector('.Mainscreen-terminal');
+  const Complementary = document.querySelector(".Complementary_submit"); 
   Complementary.addEventListener('click', function() { 
     var txtarea= document.getElementById("Complementary_textarea")
     var Complementary_output= document.getElementById("Complementary_para_output")
@@ -73,10 +120,7 @@ document.addEventListener("DOMContentLoaded", function() {
       Terminal.style.display = 'block';
     }
   });
-
-
 });
-
 document.addEventListener("DOMContentLoaded", function() {
   const Terminal = document.querySelector('.Mainscreen-terminal');
   const NC_Submitbtn = document.querySelector('.NC_submit'); 
@@ -107,6 +151,23 @@ document.addEventListener("DOMContentLoaded", function() {
     var GC_output= document.getElementById("GC_para_output")
     var text= txtarea.value;
     invoke('gc', {seq: text}).then((result) => GC_output.textContent=result);
+    if (Terminal.style.display === 'none') { 
+      Terminal.style.display = 'block';
+    } else {
+      Terminal.style.display = 'block';
+    }
+  });
+});
+
+document.addEventListener("DOMContentLoaded", function() {
+  const Terminal = document.querySelector('.Mainscreen-terminal');
+  const Transcription =document.querySelector(".Transcription_submit");
+
+  Transcription.addEventListener('click', function() { 
+    var txtarea= document.getElementById("Transcription_textarea")
+    var Transcription_output= document.getElementById("Transcription_para_output")
+    var text= txtarea.value;
+    invoke('transcription', {seq: text}).then((result) => Transcription_output.textContent=result);
     if (Terminal.style.display === 'none') { 
       Terminal.style.display = 'block';
     } else {

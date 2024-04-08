@@ -3,10 +3,6 @@
 
 // Learn more about Tauri commands at https://tauri.app/v1/guides/features/command
 #[tauri::command]
-fn greet(name: &str) -> String {
-    format!("Hello, {}! You've been greeted by Tauri", name)
-}
-#[tauri::command]
 fn n_count(seq: &str) -> String {
     let newseq = seq.to_uppercase();
     let count_a = newseq.matches('A').count();
@@ -48,16 +44,36 @@ fn gc(seq: &str) -> String {
     let gc = if total != 0 {
         ((count_c + count_g) as f64 / total as f64) * 100.0
     } else {
-        0.0 // Or handle this case according to your requirements
+        0.0 
     };
 
     format!("GC content in the sequence is {:.2}%", gc)
 }
 
+#[tauri::command]
+fn transcription(seq: &str) ->String {
+    let newseq= seq.to_uppercase();
+    let mut transcription_sequence = String::new();
+
+    for base in newseq.chars() {
+        let transcription_base = match base {
+            'A' => 'A',
+            'T' => 'U',
+            'C' => 'C',
+            'G' => 'G',
+            
+            _ => base,
+        };
+        transcription_sequence.push(transcription_base);
+    }
+    
+    transcription_sequence    
+}
+
 
 fn main() {
     tauri::Builder::default()
-        .invoke_handler(tauri::generate_handler![greet,n_count,complementary,gc])
+        .invoke_handler(tauri::generate_handler![n_count,complementary,gc,transcription])
         .run(tauri::generate_context!())
         .expect("error while running tauri application");
 }
