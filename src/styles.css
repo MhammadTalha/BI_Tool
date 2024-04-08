@@ -288,6 +288,42 @@ width: 19%;
   resize: none;
   border: 1px solid #fff;
 }
+.NC-data-code{
+  display: none;
+  width: 30%;
+  height: 100%;
+}
+.NC-data-code textarea{
+  resize: none;
+  border: 1px solid #fff;
+}
+.Complementary-data-code{
+  display: none;
+  width: 30%;
+  height: 100%;
+}
+.Complementary-data-code textarea{
+  resize: none;
+  border: 1px solid #fff;
+}
+.GC-data-code{
+  display: none;
+  width: 30%;
+  height: 100%;
+}
+.GC-data-code textarea{
+  resize: none;
+  border: 1px solid #fff;
+}
+.Transcription-data-code{
+  display: none;
+  width: 30%;
+  height: 100%;
+}
+.Transcription-data-code textarea{
+  resize: none;
+  border: 1px solid #fff;
+}
 .Mainscreen-terminal{
   display: none;
   width: 100%;
@@ -325,6 +361,16 @@ width: 19%;
   
 }
 .GC_terminaloutput p{
+  color: white;
+  width: 90%;
+}
+.Transcription_terminaloutput{
+  width: 100%;
+  height: auto;
+  margin-top: 20px;
+  
+}
+.Transcription_terminaloutput p{
   color: white;
   width: 90%;
 }

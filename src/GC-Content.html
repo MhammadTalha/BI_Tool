@@ -48,11 +48,28 @@
           <div class="GC-buttons">
             <input type="submit" class="GC_submit">
             <input type="reset">
-            <button>Code</button>
+            <button class="GC_code">Code</button>
           </div>
         </div> 
-        <div class="Mainscreen-data-code">
-          <textarea  cols="50" rows="34"></textarea>
+        <div class="GC-data-code">
+          <textarea  cols="50" rows="34" readonly>
+fn gc(seq: &str) -> String {
+    let newseq = seq.to_uppercase();
+    let count_a = newseq.matches('A').count();
+    let count_t = newseq.matches('T').count();
+    let count_g = newseq.matches('G').count();
+    let count_c = newseq.matches('C').count();
+    let total = count_a + count_c + count_g + count_t;
+
+    let gc = if total != 0 {
+        ((count_c + count_g) as f64 / total as f64) * 100.0
+    } else {
+        0.0 
+    };
+
+    format!("GC content in the sequence is {:.2}%", gc)
+}
+          </textarea>
         </div>
       </div>
       <div class="Mainscreen-terminal">

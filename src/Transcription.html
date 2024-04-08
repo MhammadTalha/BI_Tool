@@ -43,20 +43,42 @@
         <div class="Mainscreen-data-input">        
           <div class="Transcription-inputfield">
             <label >Enter Your DNA Sequence</label>
-            <textarea  cols="30" rows="10"></textarea>
+            <textarea id="Transcription_textarea" cols="30" rows="10"></textarea>
           </div>
           <div class="Transcription-buttons">
-            <input type="submit" class="submit">
+            <input type="submit" class="Transcription_submit">
             <input type="reset">
-            <button>Code</button>
+            <button class="Transcription_code">Code</button>
           </div>
         </div> 
-        <div class="Mainscreen-data-code">
-          <textarea  cols="50" rows="34"></textarea>
+        <div class="Transcription-data-code">
+          <textarea  cols="50" rows="34" readonly>
+fn transcription(seq: &str) ->String {
+    let newseq= seq.to_uppercase();
+    let mut transcription_sequence = String::new();
+
+    for base in newseq.chars() {
+        let transcription_base = match base {
+            'A' => 'A',
+            'T' => 'U',
+            'C' => 'C',
+            'G' => 'G',
+            
+            _ => base,
+        };
+        transcription_sequence.push(transcription_base);
+    }
+    
+    transcription_sequence    
+}
+          </textarea>
         </div>
       </div>
       <div class="Mainscreen-terminal">
         <h3>Terminal</h3>
+        <div class="Transcription_terminaloutput">
+          <p id="Transcription_para_output"></p>
+        </div>
       </div>
     </div>
   </div>
