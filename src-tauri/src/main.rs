@@ -18,9 +18,10 @@ fn n_count(seq: &str) -> String {
 
 #[tauri::command]
 fn complementary(seq: &str) -> String {
+    let newseq = seq.to_uppercase();
     let mut complementary_sequence = String::new();
 
-    for base in seq.chars() {
+    for base in newseq.chars() {
         let complementary_base = match base {
             'A' => 'T',
             'T' => 'A',
@@ -42,9 +43,15 @@ fn gc(seq: &str) -> String {
     let count_t = newseq.matches('T').count();
     let count_g = newseq.matches('G').count();
     let count_c = newseq.matches('C').count();
-    let total=count_a+count_c+count_g+count_t;
-    let gc= ((count_c+count_g)/total)*100;
-    format!("GC content in the sequnce is {}! %",gc)
+    let total = count_a + count_c + count_g + count_t;
+
+    let gc = if total != 0 {
+        ((count_c + count_g) as f64 / total as f64) * 100.0
+    } else {
+        0.0 // Or handle this case according to your requirements
+    };
+
+    format!("GC content in the sequence is {:.2}%", gc)
 }
 
 
