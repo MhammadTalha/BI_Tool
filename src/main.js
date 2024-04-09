@@ -1,6 +1,11 @@
 const invoke = window.__TAURI__.invoke;
 
-
+var preload = document.querySelector('.pre')
+window.addEventListener("load",function(){
+  setInterval(()=> {
+    preload.style.display="none";
+  } , 3000)
+})
 
 var resizeable = document.querySelector('.sidr'),
     sidebar = document.getElementById('sidebar');
