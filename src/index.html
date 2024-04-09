@@ -7,8 +7,14 @@
   <title>Tauri App</title>
   <script type="module" src="main.js" defer></script>
   <script type="module" src="notmain.js" defer></script>
+  <script src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs" type="module"></script>
 </head>
 <body>
+  <div class="pre">
+    <div class="anim">
+      <dotlottie-player src="Anim.json" background="transparent" speed="1" style="width: 100vw; height: 100vh;" loop autoplay></dotlottie-player>
+    </div>
+  </div>
   <nav>
     <a href="#help">Help</a>
     <a href="#contact">Contact</a>
